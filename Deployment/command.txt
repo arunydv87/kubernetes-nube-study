@@ -1,0 +1,18 @@
+# Hint Point 
+# commands like kubectl patch, replace, delete, create, even edit are all imperative and apply are declartive
+
+
+# kubectl create -f deploy.yaml
+# kubectl apply -f deploy.yaml
+# kubectl replace -f deploy.yaml
+# kubectl edit deployment/deployment-name 
+# kubectl get pods --show-labels
+# kubectl set image deployment/nginx-deployment nginx=nginx:1.16.1 ## Updating the Deployment image
+# kubectl rollout status deployment/nginx-deployment # check the Rollout status of replicas : check kubbectl get rs
+///# # Fail image kubectl set image deployment/nginx-deployment nginx=nginx:1.16134  ## test
+///# # kubectl rollout status deployment/nginx-deployment 
+# kubectl rollout history deployment/nginx-deployment  # Checking Rollout History of a Deployment
+# kubectl rollout history deployment/nginx-deployment --revision=2 ## Check the revision of deployment
+# kubectl rollout undo deployment/nginx-deployment  # Undo with previous version
+# kubectl scale deployment/nginx-deployment --replicas=10 ## Scale the new replicas images
+#

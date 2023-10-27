@@ -4,12 +4,15 @@ kubectl describe pod pod_name                      # Show detailed information a
 kubectl get pods -o wide                      # List all pods in the current namespace, with more details
 kubectl get pods                              # List all pods in the namespace
 kubectl get pod my-pod -o yaml                # Get a pod's YAML
+kubectl delete pod busybox --force --grace-period=0  #  Remove Pod with forcefully
+kubectl delete pod busybox --grace-period=30  #  Remove Pod with grace period default graceperiod 30 sec
 kubectl run nginx --image=nginx --dry-run=client -o yaml > pod.yaml  # Generate spec for running pod nginx and write it into a file called pod.yaml
 kubectl run nginx --image=nginx --port=80  # Run pod with port
 Kubectl exec -it nginx -- sh or -- /bin/bash  # switch to pod terminal
 kubectl exec -it busybox-sleep -c nginx -- sh   ## Multipod shell access
 kubectl run tmp-shell --restart=Never --rm -i --tty --image=centos -- /bin/bash  # Temporary pod running  
 kubectl get pods -l environment=production,tier=frontend  ## Check pod with label
+kubectl get pods --show-labels ## show all label of pod on namespace
 kubectl logs my-pod                                 # dump pod logs (stdout)
 kubectl logs -l name=myLabel                        # dump pod logs, with label name=myLabel (stdout)
 kubectl logs my-pod --previous                      # dump pod logs (stdout) for a previous instantiation of a container

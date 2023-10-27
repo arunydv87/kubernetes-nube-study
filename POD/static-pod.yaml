@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: static-web
+  labels:
+    role: myrole
+spec:
+  containers:
+    - name: web
+      image: nginx
+      ports:
+        - name: web
+          containerPort: 80
+          protocol: TCP
+# create the file on worker node path /etc/kubernetes/manifests
+# Pod create automatic , check on controlplane
+# Try to delete the pod forcely,but it auto recreate kubectl delete pod static-web
+# Even try with docker or cri terminal
+# Check :  sudo crictl ps
+# Delete : sudo crictl stop dockerID
+# Mvrge file to  /tmp path and check , Pod remove from controlplane
+#  
+#          
